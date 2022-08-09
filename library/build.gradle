@@ -10,7 +10,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 31
         versionCode 1
-        versionName "1.4.6"
+        versionName "1.4.7"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -48,7 +48,7 @@ afterEvaluate {
 
                 groupId = 'com.github.my'
                 artifactId = 'nice-project'
-                version = "1.4.6"
+                version = "1.4.7"
                 artifact androidSourcesJar
             }
         }
