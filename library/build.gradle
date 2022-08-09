@@ -1,6 +1,8 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'maven-publish'
+
 android {
     compileSdkVersion 31
 
@@ -22,6 +24,22 @@ android {
     }
 
 }
+
+
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            release(MavenPublication) {
+//                from components.release
+//
+//                groupId = 'com.github.onelenyk'
+//                artifactId = 'MasterExoPlayer'
+//                version = Config.libraryVersion
+//                artifact(sourcesJar)
+//            }
+//        }
+//    }
+//}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
