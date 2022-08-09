@@ -23,23 +23,38 @@ android {
         }
     }
 
+//    flavorDimensions 'mode'
+//    productFlavors {
+//        production {}
+//    }
+//
+//    publishing {
+//        // Publishes "fullRelease" build variant with "fullRelease" component created by
+//        // Android Gradle plugin
+//        singleVariant("fullRelease")
+//    }
 }
 
+task androidSourcesJar(type: Jar) {
+    classifier 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
 
-//afterEvaluate {
-//    publishing {
-//        publications {
-//            release(MavenPublication) {
-//                from components.release
-//
-//                groupId = 'com.github.onelenyk'
-//                artifactId = 'MasterExoPlayer'
-//                version = Config.libraryVersion
-//                artifact(sourcesJar)
-//            }
-//        }
-//    }
-//}
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+
+                groupId = 'com.github.my'
+                artifactId = 'nice-project'
+                version = "1.4.6"
+                artifact androidSourcesJar
+            }
+        }
+    }
+}
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
